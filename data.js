@@ -218,13 +218,6 @@ connections = {
         ["Rio De Janeiro", "SantaCruz Sierra"],
     ],
     "wip_ice": [
-
-        ["Shiroda", "Crasmere"], 
-        ["Latur", "Crasmere"], 
-        ["Latur", "Mumbai"],
-        ["Latur", "Akola"], 
-        ["Ahmedabad", "QuinnLand"],
-        ["Ahmedabad", "Houmt Souk"],
 	["Latur", "Crasmere"], //NH04
 	["Crasmere", "Bay City"], //NH12
 	["Ahmedabad", "Canton"], //IH02
