@@ -17,7 +17,9 @@ citiesD = [
     {"x": 13216.0, "y": -2750, "name": "Indian NH02-NH09 junction"},
     {"x": -15376.0, "y": -5480.0, "name": "USA #1 junction"},
     {"x": -15000.0, "y": -6942.0, "name": "USA #2 junction"},
-
+    {"x": -12776.0, "y": 13233.0, "name": "Creative Colour"},
+        {"x": -13488.0, "y": 13323.0, "name": "Elyria"},
+        {"x": -13475.0, "y": 12636.0, "name": "Hoth"}
 ]
 citiesL = {
 
@@ -71,8 +73,12 @@ connections = {
         ["FixedMines", "Tallinn"],
         ["FixedMines", "Sillamae"],
 
+        //Glacier Spartan Network - BartBoys3    
         ["Glacier Town", "Gondwana", "ZeTrapz"],
-
+        ["Glacier Town", "Creative Colour"],    
+        ["Creative Colour", "Elyria"],
+        ["Elyria", "Hoth"],
+            
         ["Ayan", "LiaoYang"],
         ["Sakha", "LiaoYang"],
         ["Hyesan", "LiaoYang"],
