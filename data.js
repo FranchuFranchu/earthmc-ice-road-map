@@ -72,9 +72,9 @@ connections = {
         ["Siauliai", "Rietavas"],
         ["Hiiumaa", "Tallinn"],
         ["FixedMines", "Tallinn"],
-        ["FixedMines", 
+        ["FixedMines", "Sillamae"], 
 
-        //Glacier Spartan Network - BartBoys3    
+        //Antarctic Network Expansion - BartBoys3    
         ["Glacier Town", "Gondwana", "ZeTrapz"],
         ["Glacier Town", "Creative Colour"],    
         ["Creative Colour", "Elyria"],
