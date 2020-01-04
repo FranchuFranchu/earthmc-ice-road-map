@@ -31,6 +31,7 @@ citiesD = [
     {"x": 13392.0, "y": -100.0, "name": "BruhTown"},
     {"x": 13393.0, "y": -250.0, "name": "Addu City"},
     {"x": 13460.0, "y": -250.0, "name": "East Addu Junction"},
+	{"x": 13056.0, "y": -4448.0, "name": "Ahmedabad"},
 
 ]
 citiesL = {
@@ -107,7 +108,7 @@ connections = {
         ["Seoul", "Busan"],
 
         // Indian network
-        ["Ahmedabad [HUB]", "Mumbai"], //NH01
+        ["Ahmedabad", "Mumbai"], //NH01
         ["Shiroda", "Mumbai"], //NH02 a
         ["South Shiroda Junction", "Male"], //NH02 b
 	["Shiroda", "South Shiroda Junction"], //NH10 a
@@ -115,12 +116,12 @@ connections = {
 	["Shiroda", "Crasmere"], //NH03
 	["Latur", "Mumbai"], //NH05a
         ["Latur", "Akola"], //NH05b
-        ["Ahmedabad [HUB]", "QuinnLand"], //NH07
-     	["Ahmedabad [HUB]", "East Muscat Junction"], //IH01a
+        ["Ahmedabad", "QuinnLand"], //NH07
+     	["Ahmedabad", "East Muscat Junction"], //IH01a
 	["Doha Junction", "East Muscat Junction"], //IH01b
 	["Doha Junction", "Houmt Souk"], //IH01c
 	["Doha Junction", "Pasargadae"], //IH03
-	["Ahmedabad [HUB]", "Harappa"], //NH08
+	["Ahmedabad", "Harappa"], //NH08
 	["Male", "Baa Atoll"], //NH02c
 	["East Muscat Junction", "IndianOcean"], //NH06 new
 	["Baa Atoll", "East Addu Junction"], //NH09 new a
@@ -218,20 +219,15 @@ connections = {
     ],
     "wip_ice": [
 
-        ["Ceylon", "Male", "indian7p#6837"],
         ["Shiroda", "Crasmere"], 
         ["Latur", "Crasmere"], 
         ["Latur", "Mumbai"],
         ["Latur", "Akola"], 
         ["Ahmedabad", "QuinnLand"],
-        ["Ahmedabad", "Kanpur"],
         ["Ahmedabad", "Houmt Souk"],
-        ["QuinnLand", "Sable", "☭ChristianRobloxManEcksdee☭#3728"],
-        ["Kanpur", "Tigers Nest", "Barbocity#8342"],
-	//India    
 	["Latur", "Crasmere"], //NH04
 	["Crasmere", "Bay City"], //NH12
-	["Ahmedabad [HUB]", "Canton"], //IH02
+	["Ahmedabad", "Canton"], //IH02
     ],
     "wip_nether_ice": [
     ]
