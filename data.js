@@ -20,6 +20,7 @@ citiesD = [
     {"x": -12776.0, "y": 13233.0, "name": "Creative Colour"},
         {"x": -13488.0, "y": 13323.0, "name": "Elyria"},
         {"x": -13475.0, "y": 12636.0, "name": "Hoth"}
+
 ]
 citiesL = {
 
@@ -71,7 +72,7 @@ connections = {
         ["Siauliai", "Rietavas"],
         ["Hiiumaa", "Tallinn"],
         ["FixedMines", "Tallinn"],
-        ["FixedMines", "Sillamae"],
+        ["FixedMines", 
 
         //Glacier Spartan Network - BartBoys3    
         ["Glacier Town", "Gondwana", "ZeTrapz"],
