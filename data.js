@@ -261,8 +261,7 @@ lineAttrs = {
         stroke: "#FF0000"
     },
     "wip_ice": {
-        stroke: "#286a91",
-        strokeDasharray: "0.1 0.4",
+        stroke: "#912c28"
     }
 }
 // Add lines
