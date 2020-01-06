@@ -26,7 +26,6 @@ citiesD = [
     {"x": -12212.0, "y": 14728.0, "name": "Club Penguin"},
     {"x": -11506.0, "y": 13628.0, "name": "Fort Tristan"},
     {"x": -11704.0, "y": 14019.0, "name": "Antarctic Junction #1"},
-    {"x": 3.0, "y": 16349.0, "name": "Endton"},
     {"x": 3.0, "y": 15313.0, "name": "Antarctic Junction #2"},
     {"x": 2582.0, "y": 15311.0, "name": "Antarchius"},
     //Potental Junction at -11704, 31, 14434
@@ -237,7 +236,7 @@ connections = {
 	["Ahmedabad", "Canton"], //IH02
 	//Antarctia
 	["Valyria", "Antarctic Junction #1"],
-	["Antarcitc Junction #1", "Hinfell"],
+	["Antarctic Junction #1", "Hinfell"],
 	["Hinfell", "Elyria"],
     ],
     "wip_nether_ice": [
