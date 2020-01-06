@@ -24,7 +24,8 @@ citiesD = [
     {"x": -11592.0, "y": 12615.0, "name": "Valyria"},
     {"x": -12264.0, "y": 14030.0, "name": "Hinfell"},
     {"x": -12212.0, "y": 14728.0, "name": "Club Penguin"},
-    {"x": -11506.0, "y": 13628.0, "name": "Fort Tristan"},	
+    {"x": -11506.0, "y": 13628.0, "name": "Fort Tristan"},
+    {"x": -11704.0, "y": 14019.0, "name": "Antarctic Junction #1"}, 
 	//India
     {"x": 13141.0, "y": -5848.0, "name": "Harappa"},
     {"x": 14852.0, "y": -3159.0, "name": "Bay City"},
@@ -229,8 +230,9 @@ connections = {
 	["Crasmere", "Bay City"], //NH12
 	["Ahmedabad", "Canton"], //IH02
 	//Antarctia
-	["Hinfell", "Valyria"],
-	["Elyria", "Hinfell"],
+	["Valyria", "Antarctic Junction #1"],
+	["Antarcitc Junction #1", "Hinfell"],
+	["Hinfell", "Elyria"],
     ],
     "wip_nether_ice": [
     ]
