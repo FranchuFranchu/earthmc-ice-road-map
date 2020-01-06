@@ -230,6 +230,7 @@ connections = {
 	["Ahmedabad", "Canton"], //IH02
 	//Antarctia
 	["Hinfell", "Valyria"],
+	["Elyria", "Hinfell"],
     ],
     "wip_nether_ice": [
     ]
