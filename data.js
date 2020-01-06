@@ -229,8 +229,7 @@ connections = {
 	["Crasmere", "Bay City"], //NH12
 	["Ahmedabad", "Canton"], //IH02
 	//Antarctia
-	["Hinfell", "Fort Tristan"],
-	["Fort Tristan", "Valyria"],
+	["Hinfell", "Valyria"],
     ],
     "wip_nether_ice": [
     ]
