@@ -25,7 +25,11 @@ citiesD = [
     {"x": -12264.0, "y": 14030.0, "name": "Hinfell"},
     {"x": -12212.0, "y": 14728.0, "name": "Club Penguin"},
     {"x": -11506.0, "y": 13628.0, "name": "Fort Tristan"},
-    {"x": -11704.0, "y": 14019.0, "name": "Antarctic Junction #1"}, 
+    {"x": -11704.0, "y": 14019.0, "name": "Antarctic Junction #1"},
+    {"x": 3.0, "y": 16349.0, "name": "Endton"},
+    {"x": 3.0, "y": 15313.0, "name": "Antarctic Junction #2"},
+    {"x": 2582.0, "y": 15311.0, "name": "Antarchius"},
+    //Potental Junction at -11704, 31, 14434
 	//India
     {"x": 13141.0, "y": -5848.0, "name": "Harappa"},
     {"x": 14852.0, "y": -3159.0, "name": "Bay City"},
@@ -99,6 +103,8 @@ connections = {
 	["Gondwana", "West Falklands"],
 	["Valyria", "Glacier Town"],
 	["Club Penguin", "Hinfell"],
+	["Endton", "Antarctic Junction #2"],
+	["Antarctic Junction #2", "Antarchius"],
             
         ["Ayan", "LiaoYang"],
         ["Sakha", "LiaoYang"],
