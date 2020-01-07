@@ -105,7 +105,8 @@ connections = {
 	["Antarctic Junction #1", "Antarchius"],
 	["Glacier Town", "Glacier Junction #1"],
 	["Glacier Junction #1", "Glacier Junction #2"],
-	["Glacier Junction #2", "Elyria"],
+	["Glacier Junction #1", "Elyria"],
+	["Glacier Junction #2", "Hinfell"],
 	    
             
         ["Ayan", "LiaoYang"],
