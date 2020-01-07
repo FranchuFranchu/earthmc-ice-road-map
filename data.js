@@ -25,8 +25,9 @@ citiesD = [
     {"x": -12264.0, "y": 14030.0, "name": "Hinfell"},
     {"x": -12212.0, "y": 14728.0, "name": "Club Penguin"},
     {"x": -11506.0, "y": 13628.0, "name": "Fort Tristan"},
-    {"x": -11704.0, "y": 14019.0, "name": "Antarctic Junction #1"},
-    {"x": 3.0, "y": 15313.0, "name": "Antarctic Junction #2"},
+    {"x": -11704.0, "y": 14019.0, "name": "Glacier Junction #2"},
+    {"x": 3.0, "y": 15313.0, "name": "Antarctic Junction #1"},
+    {"x": -11704.0, "y": 13239.0, "name": "Glacier Junction #1"},
     {"x": 2582.0, "y": 15311.0, "name": "Antarchius"},
     //Potental Junction at -11704, 31, 14434
 	//India
@@ -96,14 +97,16 @@ connections = {
         ["FixedMines", "Sillamae"], 
 
         //Antarctic Network Expansion - BartBoys3    
-        ["Glacier Town", "Gondwana", "ZeTrapz"],
-        ["Glacier Town", "Elyria"],   
+        ["Glacier Town", "Gondwana", "ZeTrapz"],  
         ["Elyria", "Hoth"],
 	["Gondwana", "West Falklands"],
-	["Valyria", "Glacier Town"],
 	["Club Penguin", "Hinfell"],
-	["Endton", "Antarctic Junction #2"],
-	["Antarctic Junction #2", "Antarchius"],
+	["Endton", "Antarctic Junction #1"],
+	["Antarctic Junction #1", "Antarchius"],
+	["Glacier Town", "Glacier Junction #1"],
+	["Glacier Junction #1", "Glacier Junction #2"],
+	["Glacier Junction #2", "Elyria"],
+	    
             
         ["Ayan", "LiaoYang"],
         ["Sakha", "LiaoYang"],
@@ -235,9 +238,6 @@ connections = {
 	["Crasmere", "Bay City"], //NH12
 	["Ahmedabad", "Canton"], //IH02
 	//Antarctia
-	["Valyria", "Antarctic Junction #1"],
-	["Antarctic Junction #1", "Hinfell"],
-	["Hinfell", "Elyria"],
     ],
     "wip_nether_ice": [
     ]
