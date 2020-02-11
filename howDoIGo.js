@@ -13,24 +13,26 @@ function how_do_i_go() {
         document.getElementById("result").innerText = ""
         document.getElementById("result").style.display = "grid"
     }
-    l.unshift([l[0][0], "foot"])
+    l.unshift([l[0][0], "walk"])
     fracs = []
     document.getElementById("result").style.gridTemplateRows = "1fr 1fr ".repeat(l.length)
     console.log(document.getElementById("result").style.gridTemplateRows)
     s += `<div class="background-path-line none" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: ${i * 2 + 2}; grid-row-end: ${i * 2 + 3}"></div>`
     for (var i = 0; i < (l.length - 1); i++) {
         var from = l[i]
+        asd = from
         var to = l[i + 1]
         SIZE_CONST = 0.1
         fracs.push(l[l.length - 1 - i][2] * SIZE_CONST)
         fracs.push(l[l.length - 1 - i][2] * SIZE_CONST)
         if (i == 0) {
-            s += `<div class="background-path-line ${from[1]}" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: ${i * 2 + 2}; grid-row-end: ${i * 2 + 3}"></div>`
+            s += `<div class="background-path-line ${from[1]}" style="background-color: ${lineAttrs[from[1]].stroke};grid-column-start: 1; grid-column-end: 2; grid-row-start: ${i * 2 + 2}; grid-row-end: ${i * 2 + 3}"></div>`
 
         } else {
-            s += `<div class="background-path-line ${from[1]}" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: ${i * 2 + 1}; grid-row-end: ${i * 2 + 3}"></div>`
+            s += `<div class="background-path-line ${from[1]}" style="background-color: ${lineAttrs[from[1]].stroke};grid-column-start: 1; grid-column-end: 2; grid-row-start: ${i * 2 + 1}; grid-row-end: ${i * 2 + 3}"></div>`
         }
-        s += `<div clss="path-item" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: ${i * 2 + 2}; grid-row-end: ${i * 2 + 4}">${to[0]}</div>`
+        console.log(s)
+        s += `<div class="path-item" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: ${i * 2 + 2}; grid-row-end: ${i * 2 + 4}">${to[0]}</div>`
         
     }
     for (var i = 0; i < l.length; i++) {
@@ -72,13 +74,26 @@ function clear_path() {
 
 function control_open() {
   document.getElementById("control-panel").style.display = "block";
-  document.getElementById("control-show").style.display = "none";
+  document.getElementById("show-buttons").style.display = "none";
 
 }
 
 function control_close() {
   document.getElementById("control-panel").style.display = "none";
-  document.getElementById("control-show").style.display = "block";
+  document.getElementById("show-buttons").style.display = "block";
+
+  document.body.style.gridTemplateColumns = "2fr 0fr"
+}
+
+function legend_open() {
+  document.getElementById("legend-panel").style.display = "block";
+  document.getElementById("show-buttons").style.display = "none";
+
+}
+
+function legend_close() {
+  document.getElementById("legend-panel").style.display = "none";
+  document.getElementById("show-buttons").style.display = "block";
 
   document.body.style.gridTemplateColumns = "2fr 0fr"
 }
