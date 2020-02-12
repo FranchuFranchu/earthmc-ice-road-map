@@ -1,5 +1,6 @@
 html {
     height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -17,6 +18,9 @@ body {
   height: 100%; 
   display: none; 
   margin: 10px;
+  overflow: scroll;
+  min-width: 300px;
+  height: 100%;
 }
 
 #legend-panel {
@@ -49,9 +53,6 @@ body {
     display: grid;
     grid-template-columns: 0.05fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    overflow: scroll;
-    text-overflow: scroll;
-    height: 100%;
 }
 
 .background-path-line {
