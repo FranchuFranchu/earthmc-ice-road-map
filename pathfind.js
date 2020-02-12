@@ -15,15 +15,9 @@ function addLine(from, to, type) {
     return line;
 }
 function getDistance(from, to) {
-    // Function to get distance between two points
-    var dLat = (to.latitude-from.latitude)*Math.PI/180;  
-    var dLon = (to.longitude-from.longitude)*Math.PI/180;   
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +  
-            Math.cos(from.latitude*Math.PI/180) * Math.cos(to.latitude*Math.PI/180) *   
-            Math.sin(dLon/2) * Math.sin(dLon/2);   
-    var c = 2 * Math.asin(Math.sqrt(a));   
-    
-    return c
+    // Since all routes are square bc minecraft is square, we can just substract
+    return Math.abs((from.latitude - to.latitude) + (from.longitude - to.longitude))
+
 }
 
 function containsObject(obj, list) {
@@ -60,7 +54,7 @@ function pathfind(from, to) {
         if (!containsObject(conn[0].tooltipText, Object.keys(traversed)))  {
             console.log(conn[0].tooltipText)
             traversed[conn[0].tooltipText] = distanceToThat
-            cameFrom[conn[0].tooltipText] = [conn[2].tooltipText, conn[3], conn[1]]
+            cameFrom[conn[0].tooltipText] = [conn[2].tooltipText, conn[3], conn[4], distanceToThat]
             if (to == conn[0]) {
                 break;
             }
@@ -72,7 +66,14 @@ function pathfind(from, to) {
             minDistance = distanceToThat
             path.push([conn[0], conn[3]])
             for (var i = 0; i < conn[0].connections.length; i++) {
-                possibleExits.push([conn[0].connections[i][0], conn[0].connections[i][1] +distanceToThat, conn[0], conn[0].connections[i][3]])
+                possibleExits.push(
+                    [conn[0].connections[i][0],
+                     conn[0].connections[i][1] + distanceToThat,
+                     conn[0],
+                     conn[0].connections[i][3],
+                     conn[0].connections[i][1]
+                     ],
+                     )
             }
             path.pop()
         }
@@ -83,28 +84,27 @@ function pathfind(from, to) {
     if (to == undefined) {
         return undefined
     }
-    console.log(conn.tooltipText)
-    console.log(to.tooltipText, from.tooltipText, conn[0])
-    function getPath(conn, i) {
-        if (conn == from.tooltipText) {
-            return []
-        } else if (cameFrom[conn] == undefined) {
-            return false;
-        } 
-        // Else
-        l = getPath(cameFrom[conn][0], i + 1)
-        if (l !== false) {
-            l.push(cameFrom[conn])
-        }
-        return l
+    if (cameFrom[to.tooltipText] == undefined) {
+        return undefined;
     }
-    var r = getPath(to.tooltipText)
-    console.log(conn)
-    console.log(r)
-    if (r == false) {
+    var to = [to.tooltipText, cameFrom[to.tooltipText][1], cameFrom[to.tooltipText][2], cameFrom[to.tooltipText][3]]
+    var from = [from.tooltipText, "walk", 0, 0]
+    
+    window.path_buff = [from]
+    var connv = to
+    while (true) {
+        if (connv == undefined) {
+            break
+        }
+        console.log(connv[3])
+        console.log(connv[2])
+        window.path_buff.push(connv)
+        connv = cameFrom[connv[0]]
+        console.log(window.path_buff)
+    }
+    console.log(window.path_buff)
+    if (window.path_buff == false) {
         // no path
         return false;
     }
-    r.push([conn[0].tooltipText, conn[3], conn[1]])
-    return r
 }
