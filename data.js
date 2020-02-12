@@ -85,6 +85,11 @@ connections = {
         ["FixedMines", "Tallinn"],
         ["FixedMines", "Sillamae"], 
 
+    ["Doha Junction", "East Muscat Junction"], //IH01b
+    ["Doha Junction", "Houmt Souk"], //IH01c
+    ["Doha Junction", "Pasargadae"], //IH03
+    ["Doha Junction", "Manama City"], //IH03 extra
+
         //Antarctic Network Expansion - BartBoys3    
         ["Glacier Town", "Gondwana", "ZeTrapz"],
         ["Glacier Town", "Creative Colour"],    
