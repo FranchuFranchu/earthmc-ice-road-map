@@ -190,28 +190,6 @@ connections = {
         ["Seoul", "Jeju"],
         ["Seoul", "Busan"],
 
-        ["Ahmedabad", "Mumbai"], //NH01
-        ["Shiroda", "Mumbai"], //NH02 a
-        ["South Shiroda Junction", "Male"], //NH02 b
-	["Shiroda", "South Shiroda Junction"], //NH10 a
-        ["South Shiroda Junction", "Koramyst"], //NH10b
-	["Shiroda", "Crasmere"], //NH03
-	["Latur", "Mumbai"], //NH05a
-        ["Latur", "Akola"], //NH05b
-        ["Ahmedabad", "QuinnLand"], //NH07
-     	["Ahmedabad", "East Muscat Junction"], //IH01a
-	["Doha Junction", "East Muscat Junction"], //IH01b
-	["Doha Junction", "Houmt Souk"], //IH01c
-	["Doha Junction", "Pasargadae"], //IH03
-	["Ahmedabad", "Harappa"], //NH08
-	["Male", "Baa Atoll"], //NH02c
-	["East Muscat Junction", "IndianOcean"], //NH06 new
-	["Baa Atoll", "East Addu Junction"], //NH09 new a
-	["BruhTown", "East Addu Junction"], //NH09 new b
-	["Addu City", "East Addu Junction"], //NH11 new
-	["Doha Junction", "Manama City"], //IH03 extra
-
-
         ["Autumnshire", "Amarok", "DMKBoyz, Dictioo, BlueSupreme"],
 
         // Australian network
@@ -413,10 +391,6 @@ connections = {
         ["Rio De Janeiro", "SantaCruz Sierra"],
     ],
     "wip_ice": [
-	["Latur", "Crasmere"], //NH04
-	["Crasmere", "Bay City"], //NH12
-	["Ahmedabad", "Canton"], //IH02
-	//Antarctia
 
         ["QuinnLand", "Sable", "☭ChristianRobloxManEcksdee☭#3728"],
         ["Kanpur", "Tigers Nest", "Barbocity#8342"]
