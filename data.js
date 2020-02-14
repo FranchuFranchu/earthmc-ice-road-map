@@ -76,6 +76,7 @@ citiesD = [
     {"x": 4827.0, "y": -7960, "name": "Europe #1 junction"}, 
     {"x": 4827.0, "y": -7960, "name": "Europe #3 junction"}, 
     {"x": 1824.0, "y": -7932, "name": "Europe #2 junction"}, 
+    {"x": -11522.0, "y": 5677, "name": "Argentina #1 junction"}, 
 
     {"x": 0.0, "y": -8000, "name": "Europe Core"}, 
     {"x": 0, "y": 0, "name": "0,0"}, 
@@ -229,6 +230,9 @@ connections = {
         ["Columbia MO", "Kansas City"],
         ["Columbia MO", "Prairie Du Chien"],
 
+        ["Rosario", "Argentina #1 junction", "JonnyGrunge"],
+        ["Resistencia", "Argentina #1 junction", "JonnyGrunge"],
+        ["prov Cordoba", "Argentina #1 junction", "JonnyGrunge"],
 
 
 
@@ -296,7 +300,8 @@ connections = {
         ["Baffin Island", "Cheadleton"],      
 
         ["pee pee island", "Ocean Squad"],      
-        ["Arzvodayle", "Ocean Squad"],      
+        ["Arzvodayle", "Ocean Squad"],   
+
 
        ],
     "nether_ice": [
