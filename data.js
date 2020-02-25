@@ -270,7 +270,8 @@ connections = {
         ["Resistencia", "Argentina #1 junction", "JonnyGrunge"],
         ["prov Cordoba", "Argentina #1 junction", "JonnyGrunge"],
 
-
+        ["Mossow", "Shrek"],
+        ["Shrek", "NeverWinter"]
 
     ],
     "reliance_industries": [
@@ -399,6 +400,9 @@ connections = {
         ["Carupano", "Trinidad-Tobago"],
         ["Leeward Islands", "Trinidad-Tobago"],
         ["Rio De Janeiro", "SantaCruz Sierra"],
+
+        ["North Bogota", "Dorchester"],
+        ["SA #1 junction", "Glacier Junction #1"],
     ],
     "wip_ice": [
 
@@ -416,6 +420,7 @@ connections = {
         ["Gilbert Town", "DevDev"],    
 
         ["pee pee island", "Dildo"], 
+        ["New York", "Dorchester"],
     ],
     "nether_walk": [
         ["Kristiania", "Asia #2 junction"],
