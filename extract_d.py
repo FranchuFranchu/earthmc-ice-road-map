@@ -11,7 +11,7 @@ with open('marker_earth.json') as f:
 
 
 with open('data_obj.json', 'r') as f:
-    prev_json = json.read(f)
+    prev_json = json.load(f)
 
 ft = '{'
 for t in d.keys():
