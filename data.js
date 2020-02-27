@@ -103,6 +103,7 @@ citiesD = [
     {"x": 4827.0, "y": -7960, "name": "Europe #1 junction"}, 
     {"x": 4827.0, "y": -7960, "name": "Europe #3 junction"}, 
     {"x": 1824.0, "y": -7932, "name": "Europe #2 junction"}, 
+    {"x": -200.0, "y": -9000, "name": "Europe #4 junction"}, 
     {"x": -11522.0, "y": 5677, "name": "Argentina #1 junction"}, 
 
     {"x": 0.0, "y": -8000, "name": "Europe Core"}, 
@@ -138,6 +139,13 @@ connections = {
         ["London", "Wales"],
         ["Dublin", "Wales"],
         ["Glasgow", "Wales"],
+
+
+        ["Sussex", "Wales"],
+        ["Sussex", "Saint-Brieuc"],
+        ["Europe #4 junction", "Saint-Brieuc"],
+        ["Europe #4 junction", "Angers"],
+        ["Nantes", "Angers"],
 
         ["New York", "Wales"],
         ["New York", "Chicago"],
@@ -421,6 +429,8 @@ connections = {
 
         ["pee pee island", "Dildo"], 
         ["New York", "Dorchester"],
+
+        ["Europe #4 junction", "Paris"],
     ],
     "nether_walk": [
         ["Kristiania", "Asia #2 junction"],
