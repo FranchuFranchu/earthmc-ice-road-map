@@ -280,7 +280,9 @@ connections = {
         ["prov Cordoba", "Argentina #1 junction", "JonnyGrunge"],
 
         ["Mossow", "Shrek"],
-        ["Shrek", "NeverWinter"]
+        ["Shrek", "NeverWinter"],
+
+        ["SA #1 junction", "SA #2 junction"],
 
     ],
     "reliance_industries": [
@@ -347,6 +349,7 @@ connections = {
 
         ["pee pee island", "Ocean Squad"],      
         ["Arzvodayle", "Ocean Squad"],   
+
 
 
        ],
