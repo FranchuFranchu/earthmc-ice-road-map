@@ -7,11 +7,16 @@ function addLine(from, to, type) {
     }
     line.line.controlPointDistance = 0;
     line.route = [from, to]
-    line.id = to.tooltipText + '^' + from.tooltipText
-    from.connections.push([to, d, from, type])
-    to.connections.push([from, d, to, type])
-    from.connections.sort((el1, el2) => el1[1] > el2[1])
-    to.connections.sort((el1, el2) => el1[1] > el2[1])
+    try {
+        line.id = to.tooltipText + '^' + from.tooltipText
+
+        from.connections.push([to, d, from, type])
+        to.connections.push([from, d, to, type])
+        from.connections.sort((el1, el2) => el1[1] > el2[1])
+        to.connections.sort((el1, el2) => el1[1] > el2[1])
+    } catch(err) {
+        return false;
+    }
     return line;
 }
 function getDistance(from, to) {

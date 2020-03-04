@@ -19,9 +19,12 @@
 <script src="data.js"></script>
 <script src="pathfind.js"></script>
 <script src="howDoIGo.js"></script>
+<script src="addRoad.js"></script>
+<script src="http://emcice.pythonanywhere.com/data.js"></script>
 <script>
 am4core.ready(function() {
 loadChart()
+
 loadData()
 Object.keys(connections).forEach(function(k, i) {
     
@@ -43,6 +46,8 @@ Object.keys(connections).forEach(function(k, i) {
     <title>EarthMC Ice Road Map</title>
 </head>
 <body>
+<datalist id="city_list"></datalist>
+<datalist id="all_city_list"></datalist>
 <div id="chartdiv"></div>
 <div id="control-panel" class="panel">
     <div id="not-result">
@@ -50,7 +55,6 @@ Object.keys(connections).forEach(function(k, i) {
         <input type="text" id="from" name="" placeholder="Where are you?" list="city_list">
         <br>
         <input type="text" id="to"   name="" placeholder="Where do you want to go?" list="city_list">
-        <datalist id="city_list"></datalist>
         <br>
         <button onclick="how_do_i_go()">Pathfind</button>
         <button onclick="clear_path()">Clear</button>
@@ -70,9 +74,40 @@ Object.keys(connections).forEach(function(k, i) {
     Special thanks to indian7p for making the Indian map
 
 </div>
+
+
+<div id="addroad-panel" class="panel">
+    <button onclick="addroad_close()" id="addroad-hide" class="hide-button">Hide</button>
+    <form action="http://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
+        <label for="type">Type</label>
+        <select id="addroad-checkpoint-type">
+        </select>
+        <label >From</label>
+        <input id="addroad-checkpoint-start" type="" class="" list="all_city_list">
+        <button type="button" onclick="addroad_pick('#addroad-checkpoint-start')">Pick</button>
+        <br>
+        <label >To</label>
+        <input id="addroad-checkpoint-end" type="" class="" list="all_city_list">
+        <button type="button" onclick="addroad_pick('#addroad-checkpoint-end')">Pick</button>
+        <br>
+        <button type="button" onclick="addroad_add_checkpoint()">Add connection</button>
+
+        <br/>
+        <br/>
+        <br/>
+        <ul id="addroad-checkpoints">
+            
+        </ul>
+
+        <input type="submit" name="" value="Submit"/>
+
+    </form>
+</div>
+
 <div id="show-buttons">
     <button id="control-show" onclick="control_open()">Show control</button>
     <button id="legend-show" onclick="legend_open()">Show legend</button>
+    <button id="addroad-show" onclick="addroad_open()">Show Add Iceroad Menu</button>
 </div>
 </body>
 </html>

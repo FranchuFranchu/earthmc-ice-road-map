@@ -13,8 +13,8 @@ function loadChart() {
     chart.projection = new am4maps.projections.Projection();
     chart.homeZoomLevel = 2.5;
     chart.homeGeoPoint = {
-        latitude: 38,
-        longitude: -60
+        latitude: 0,
+        longitude: 0
     };
 
     // Create map polygon series
@@ -38,5 +38,7 @@ function loadChart() {
 
 
     chart.zoomControl = new am4maps.ZoomControl();
+
+    chart.events.on("hit", addroad_pick_pos)
 
 }

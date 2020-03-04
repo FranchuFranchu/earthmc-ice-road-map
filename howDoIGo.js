@@ -121,3 +121,15 @@ function legend_close() {
 
   document.body.style.gridTemplateColumns = "2fr 0fr"
 }
+function addroad_open() {
+  document.getElementById("addroad-panel").style.display = "block";
+  document.getElementById("show-buttons").style.display = "none";
+
+}
+
+function addroad_close() {
+  document.getElementById("addroad-panel").style.display = "none";
+  document.getElementById("show-buttons").style.display = "block";
+
+  document.body.style.gridTemplateColumns = "2fr 0fr"
+}
