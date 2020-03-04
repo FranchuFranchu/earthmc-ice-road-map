@@ -24,15 +24,6 @@
 <script>
 am4core.ready(function() {
 loadChart()
-fetch('',{
-    mode: 'same-origin', 
-    })
-  .then((response) => {
-    return response;
-  })
-  .then((data) => {
-    console.log(data);
-  });
 
 loadData()
 Object.keys(connections).forEach(function(k, i) {
