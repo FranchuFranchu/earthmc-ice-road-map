@@ -114,7 +114,7 @@ function addroad_pick_city(ev) {
 function addroad_submit() {
     console.log(REQUEST_ARGS)
     let formData = new FormData($("#addroad-form")[0])
-    fetch('http://emcice.pythonanywhere.com/addroad', {
+    fetch('https://emcice.pythonanywhere.com/addroad', {
         method: 'POST',
         body: formData
     })
