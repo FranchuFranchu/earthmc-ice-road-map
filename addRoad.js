@@ -25,6 +25,15 @@ function addroad_add_checkpoint(e) {
     $("#addroad-checkpoints")[0].innerHTML += checkpoint_str
 
     addroad_update()
+    let i = $(`.addroad-item-p${id}`)[0]
+    var i1 = $(i).find(".addroad-start").text()
+    var i2 = $(i).find(".addroad-end").text()
+
+    let idx = addLine(citiesL[i1], citiesL[i2], $(i).find(".addroad-type").text()) 
+    console.log(idx)
+    lineSeries[$(i).find(".addroad-type").text()].mapLines.getIndex(idx).form_id = Number(i.getAttribute("my-id"))
+    lineSeries[$(i).find(".addroad-type").text()].mapLines.getIndex(idx).from_form = true
+
     return true;
 
 }
@@ -50,10 +59,6 @@ function addroad_update() {
             }
         }
 
-        if ((citiesL[i1] !== undefined) && citiesL[i2] !== undefined) {
-            let idx = addLine(citiesL[i1], citiesL[i2], $(i).find(".addroad-type").text()) 
-            lineSeries[$(i).find(".addroad-type").text()].mapLines.getIndex(idx).form_id = Number(i.getAttribute("my-id"))
-        }
 
     })
 }
@@ -65,6 +70,8 @@ function addroad_remove(id) {
     lineSeries[type].mapLines.each(function(e, idx) {
         if (e.form_id == id) {
             to_remove = idx
+        } else {
+            e.form_id = e.form_id - 1
         }
     })
     if (to_remove !== null) {

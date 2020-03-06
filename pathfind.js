@@ -15,6 +15,7 @@ function addLine(from, to, type) {
         from.connections.sort((el1, el2) => el1[1] > el2[1])
         to.connections.sort((el1, el2) => el1[1] > el2[1])
     } catch(err) {
+        console.log(err)
         return false;
     }
     return lineSeries[type].mapLines.length - 1;
