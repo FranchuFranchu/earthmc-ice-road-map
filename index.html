@@ -40,8 +40,19 @@ Object.keys(connections).forEach(function(k, i) {
 
 });
 
-})
 
+console.log($("#toggleDarkMode"))
+
+if (localStorage.darkMode == "true") {
+    $("#toggleDarkMode")[0].checked = true
+} else {
+    $("#toggleDarkMode")[0].checked = false
+
+}
+
+toggleDarkMode($("#toggleDarkMode")[0])
+
+})
 </script>
     <title>EarthMC Ice Road Map</title>
 </head>
@@ -63,7 +74,14 @@ Object.keys(connections).forEach(function(k, i) {
 </div>
 <div id="legend-panel" class="panel">
     <button onclick="legend_close()" id="legend-hide" class="hide-button">Hide</button>
+    <label for="toggleDarkMode">Dark mode</label>
+    <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
+    <br>
+    <br>
+    <hr>
     <div id="legend"></div>
+
+    <br>
     Stars are towns where you can n spawn to and get to the ice road system<br/><hr/>
 
     If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
@@ -72,6 +90,9 @@ Object.keys(connections).forEach(function(k, i) {
     Thanks to everyone who told me about these ice roads, or let me use their maps to add them to this one
     <br><br>
     Special thanks to indian7p for making the Indian map
+    <br><br>
+    Thanks to J1K for the idea of dark mode
+    <br><br>
 
 </div>
 
@@ -99,15 +120,15 @@ Object.keys(connections).forEach(function(k, i) {
             
         </ul>
 
-        <input type="submit" name="" value="Submit"/>
+        <button type="button" onclick="addroad_submit()">Submit</button>
 
     </form>
 </div>
 
 <div id="show-buttons">
     <button id="control-show" onclick="control_open()">Show control</button>
-    <button id="legend-show" onclick="legend_open()">Show legend</button>
-    <button id="addroad-show" onclick="addroad_open()">Show Add Iceroad Menu</button>
+    <button id="legend-show" onclick="legend_open()">Show info</button>
+    <button id="addroad-show" onclick="addroad_open()">Report missing iceroad</button>
 </div>
 </body>
 </html>

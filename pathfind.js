@@ -17,7 +17,7 @@ function addLine(from, to, type) {
     } catch(err) {
         return false;
     }
-    return line;
+    return lineSeries[type].mapLines.length - 1;
 }
 function getDistance(from, to) {
     // Since all routes are square bc minecraft is square, we can just substract

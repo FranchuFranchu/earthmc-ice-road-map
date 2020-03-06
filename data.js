@@ -86,9 +86,26 @@ lineAttrs = {
         name: "Ice road",
         stroke: "#286a91"
     },
+    "blue_ice": {
+        name: "Blue ice road",
+        stroke: "#286a91"
+    },
     "nether_ice": {
         name: "Nether ice road",
         stroke: "#FF0000"
+    },
+    "nether_blue:ice": {
+        name: "Nether blue ice road",
+        stroke: "#FF0000"
+    },
+    "underground_ice": {
+        name: "Underground ice road",
+        stroke: "#286a91"
+
+    },
+    "underground_blue_ice": {
+        name: "Underground blue ice road",
+        stroke: "#286a91"
     },
     "walk": {
         name: "Footpath",
@@ -128,7 +145,11 @@ speedObj = {
     "nether_train": 64,
     "water": 8,
     "ice": 40,
+    "blue_ice": 80,
+    "underground_ice": 40,
+    "underground_blue_ice": 80,
     "nether_ice": 320,
+    "nether_blue_ice": 640,
     "wip_ice": -1,
     "wip_nether_ice": -1,
     "rail": 8,

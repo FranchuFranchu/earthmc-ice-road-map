@@ -37,8 +37,25 @@ function loadChart() {
     console.log(chart.geodata["features"][28])
 
 
+
     chart.zoomControl = new am4maps.ZoomControl();
 
     chart.events.on("hit", addroad_pick_pos)
 
+}
+
+
+function toggleDarkMode(element) {
+    if (element.checked) {
+        polygonSeries.mapPolygons.template.fill = am4core.color("#000000")
+        polygonSeries.mapPolygons.each(e => e.fill = am4core.color("#000000"))
+        $("body").addClass("dark-mode")
+    } else {
+        polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(0).lighten(0.5)
+        polygonSeries.mapPolygons.each(e => e.fill = chart.colors.getIndex(0).lighten(0.5))
+        $("body").removeClass("dark-mode")
+    }
+
+    // this is the problem with js 
+    localStorage.darkMode = (element.checked == true || element.checked == "true")
 }

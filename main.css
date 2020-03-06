@@ -3,12 +3,29 @@ html {
   overflow: hidden;
 }
 
+body.dark-mode  {
+  background-color: black;
+  color: white;
+}
 body {
   display: grid;
   grid-template-columns: 2.0fr 0fr;/*grid-template-columns: 1.2fr 0.8fr;*/
   grid-template-rows: 1fr;
   height: 100%;
   grid-template-areas: "chartdiv control-panel";
+}
+
+.dark-mode button, .dark-mode .buttonlike, .dark-mode input, .dark-mode select {
+  color: white;
+  background: rgb(0,0,0);
+  border: 1px solid white;
+  padding: 0px 8px 0px 8px;
+  margin: 5px;
+}
+
+
+.dark-mode button:hover, .dark-mode .buttonlike:hover {
+  background-color: rgb(128,128,128);
 }
 
 #chartdiv { grid-area: chartdiv; }

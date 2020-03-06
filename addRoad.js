@@ -1,8 +1,13 @@
 
+REQUEST_ARGS = {debug_test: true}
+
 function addroad_add_checkpoint(e) {
     var id = $("#addroad-form .addroad-end").length
+    REQUEST_ARGS[`p${id}s`] = `${$("#addroad-checkpoint-start").val()}`
+    REQUEST_ARGS[`p${id}e`] = `${$("#addroad-checkpoint-end").val()}`
+    REQUEST_ARGS[`p${id}m`] = `${$("#addroad-checkpoint-type").val()}`
     var checkpoint_str = `
-       <li class="addroad-connection addroad-item-p${id}">
+       <li class="addroad-connection addroad-item-p${id}" my-id="${id}">
         From: <span class="addroad-start">${$("#addroad-checkpoint-start").val()}</span>
         <br/>
         To: <span class="addroad-end">${$("#addroad-checkpoint-end").val()}</span>
@@ -46,34 +51,40 @@ function addroad_update() {
         }
 
         if ((citiesL[i1] !== undefined) && citiesL[i2] !== undefined) {
-            addLine(citiesL[i1], citiesL[i2], $(i).find(".addroad-type").text()) 
+            let idx = addLine(citiesL[i1], citiesL[i2], $(i).find(".addroad-type").text()) 
+            lineSeries[$(i).find(".addroad-type").text()].mapLines.getIndex(idx).form_id = Number(i.getAttribute("my-id"))
         }
 
     })
 }
 
 function addroad_remove(id) {
+    let type = $(`input[name=p${id}m]`).val()
     $(`.addroad-item-p${id}`).remove()
+    let to_remove = null
+    lineSeries[type].mapLines.each(function(e, idx) {
+        if (e.form_id == id) {
+            to_remove = idx
+        }
+    })
+    if (to_remove !== null) {
+        lineSeries[type].mapLines.removeIndex(to_remove)
+    }
     addroad_update()
 }
 
 function addroad_pick(id) {
-    console.log(id)
     window.current_picking_id = id
     window.pick_button_time = (new Date()).getTime()
 }
 
 function addroad_set_str(id, val) {
-    console.log(id, val)
     $(id).val(val)
-    console.log($(id))
 }
 
 function addroad_pick_pos(ev) {
     setTimeout(function(){
         if ((window.current_picking_id !== null) && (((new Date()).getTime() - window.pick_button_time)) > 300) {
-            console.log((((new Date()).getTime() - window.pick_button_time)))
-            console.log(ev.svgPoint, ev.point, ev.spritePoint) 
             alert("Only picking cities is supported. You can set the position manually by writing __pos(x,y) (on overworld coordinates)") 
             addroad_set_str(window.current_picking_id, "__pos(2000,1000)")
             window.current_picking_id = null
@@ -91,4 +102,16 @@ function addroad_pick_city(ev) {
         window.current_picking_id = null
     }
     addroad_update()
+}
+
+function addroad_submit() {
+    console.log(REQUEST_ARGS)
+    let formData = new FormData($("#addroad-form")[0])
+    fetch('http://emcice.pythonanywhere.com/addroad', {
+        method: 'POST',
+        body: formData
+    })
+    .then(data => data.text()
+    .then(text => alert(text)
+    ))
 }
