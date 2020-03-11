@@ -1,4 +1,5 @@
-
+OFF_COLUMN = "2fr 0fr"
+OFF_AREAS = "chartdiv control-panel"
 
 String.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
@@ -106,7 +107,8 @@ function control_close() {
   document.getElementById("control-panel").style.display = "none";
   document.getElementById("show-buttons").style.display = "block";
 
-  document.body.style.gridTemplateColumns = "2fr 0fr"
+  document.body.style.gridTemplateColumns = OFF_COLUMN
+  document.body.style.gridTemplateAreas = OFF_AREAS
 }
 
 function legend_open() {
@@ -119,7 +121,8 @@ function legend_close() {
   document.getElementById("legend-panel").style.display = "none";
   document.getElementById("show-buttons").style.display = "block";
 
-  document.body.style.gridTemplateColumns = "2fr 0fr"
+  document.body.style.gridTemplateColumns = OFF_COLUMN
+  document.body.style.gridTemplateAreas = OFF_AREAS
 }
 function addroad_open() {
   document.getElementById("addroad-panel").style.display = "block";
@@ -131,5 +134,6 @@ function addroad_close() {
   document.getElementById("addroad-panel").style.display = "none";
   document.getElementById("show-buttons").style.display = "block";
 
-  document.body.style.gridTemplateColumns = "2fr 0fr"
+  document.body.style.gridTemplateColumns = OFF_COLUMN
+  document.body.style.gridTemplateAreas = OFF_AREAS
 }

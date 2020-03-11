@@ -70,7 +70,7 @@ function addroad_remove(id) {
     lineSeries[type].mapLines.each(function(e, idx) {
         if (e.form_id == id) {
             to_remove = idx
-        } else {
+        } else if (e.form_id > id) {
             e.form_id = e.form_id - 1
         }
     })
