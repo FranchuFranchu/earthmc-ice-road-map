@@ -1,15 +1,32 @@
+icons = {
+    "star": function(city, coords, title) {
 
+        cityc = city.createChild(am4plugins_bullets.Star);
+        cityc.radius = 12
+        cityc.zIndex = 10
+        return cityc
+    },
+    "elevator": function(city, coords, title) {
+        cityc = city.createChild(am4core.Image)
+        cityc.href = "https://www.aiga.org/globalassets/symbol-signs/11_elevator.gif"
+        cityc.dy = -10
+        cityc.dx = -20
+        cityc.width = 24
+        cityc.height = 24
+        return cityc
+    }
+}
 
 function addCity(coords, title) {
    
     var city = cities.mapImages.create();
-    if( stars.includes(title)) {
-        city.disposeChildren()
-        cityc = city.createChild(am4plugins_bullets.Star);
-        cityc.radius = 12
-        cityc.zIndex = 10
-        city.zIndex = 11
-        city.fill = chart.colors.getIndex(0).brighten(-0.5);
+    if (city_icons[title] !== undefined) {
+        for (var i = 0; i < city_icons[title].length; i++) {
+            let cityc = icons[city_icons[title][i]](city, coords, title)
+            cityc.dx += (i+1) * -20 
+            city.zIndex = 30
+            city.nonScaling = true
+        }
     }
     city.longitude = coords.x * MAP_SCALE + 2;
     city.latitude = coords.y * -MAP_SCALE - 1;
@@ -40,13 +57,15 @@ citiesL = {
 }
 
 
-stars = [
-    "North Bogota",
-    "Lima",
-    "Utopia",
-    "Uluru-Kata Tjuta",
-    "London",
-    ]
+city_icons = {
+    "North Bogota": ["star"],
+    "Lima": ["star"],
+    "Utopia": ["star"],
+    "Paris": ["star"],
+    "London": ["star"],
+    "Arica": ["elevator"],
+    "Baleares": ["elevator"]
+}
 connectedTowns = new Set([]);
 Object.values(connections).forEach(function(cities) {
     for (var i = 0; i < cities.length; i++) {
@@ -90,15 +109,15 @@ lineAttrs = {
     },
     "blue_ice": {
         name: "Blue ice road",
-        stroke: "#286a91"
+        stroke: "#286aFF"
     },
     "nether_ice": {
         name: "Nether ice road",
         stroke: "#FF0000"
     },
-    "nether_blue:ice": {
+    "nether_blue_ice": {
         name: "Nether blue ice road",
-        stroke: "#FF0000"
+        stroke: "#880088"
     },
     "underground_ice": {
         name: "Underground ice road",
@@ -107,7 +126,7 @@ lineAttrs = {
     },
     "underground_blue_ice": {
         name: "Underground blue ice road",
-        stroke: "#286a91"
+        stroke: "#286aEE"
     },
     "walk": {
         name: "Footpath",
