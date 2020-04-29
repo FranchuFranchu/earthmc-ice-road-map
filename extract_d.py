@@ -2,12 +2,12 @@ import json
 import os
 import sys
 
-os.system('rm marker_earth.json')
-os.system('wget https://earthmc.net/map/tiles/_markers_/marker_earth.json')
+#os.system('rm marker_earth.json')
+#os.system('wget https://earthmc.net/map/tiles/_markers_/marker_earth.json')
 
     
 with open('marker_earth.json') as f:
-    d = json.load(f)["sets"]["towny.markerset"]["areas"]
+    d = json.load(f)["sets"]["townyPlugin.markerset"]["areas"]
 
 
 
