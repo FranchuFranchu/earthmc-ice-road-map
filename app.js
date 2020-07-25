@@ -1,3 +1,5 @@
+mdc.autoInit();
+
 am4core.ready(function() {
   loadChart()
   

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/material-components-web@6.0.0/dist/material-components-web.min.css" rel="stylesheet" integrity="sha384-A/sGlEeOt+WfGT0Swvzn8fRYcFBytM8stinssAIoqO2XRIsJtWQUe/wBMvptkHjr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -96,9 +97,15 @@
     </div>
 
     <div id="show-buttons">
-        <button id="control-show" onclick="control_open()">Show control</button>
-        <button id="legend-show" onclick="legend_open()">Show info</button>
-        <button id="addroad-show" onclick="addroad_open()">Report missing iceroad</button>
+        <button class="mdc-button mdc-button--raised" id="control-show" data-mdc-auto-init="MDCRipple" onclick="control_open()">
+            <span class="mdc-button__label">SHOW CONTROL</span>
+        </button>
+        <button class="mdc-button mdc-button--raised" id="legend-show" data-mdc-auto-init="MDCRipple" onclick="legend_open()">
+            <span class="mdc-button__label">SHOW INFO</span>
+        </button>
+        <button class="mdc-button mdc-button--raised" id="addroad-show" data-mdc-auto-init="MDCRipple" onclick="addroad_open()">
+            <span class="mdc-button__label">REPORT MISSING</span>
+        </button>
     </div>
 
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -106,6 +113,7 @@
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
     <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/material-components-web@6.0.0/dist/material-components-web.min.js" integrity="sha384-cBdOLhkb7tUoRLp2RB5N844j6kWBYhDIaLerMreSO5jT721tVAfxCpUM7/n1Qq7l" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="geodata.js"></script>

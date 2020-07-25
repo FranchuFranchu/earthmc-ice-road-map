@@ -14,6 +14,11 @@ body.dark-mode {
 	color: white;
 }
 
+.mdc-text-field,
+.mdc-button {
+  --mdc-theme-primary: #82a9bc;
+}
+
 body {
 	display: grid;
 	grid-template-columns: 2.0fr 0fr;
@@ -66,6 +71,7 @@ body {
 }
 
 #show-buttons {
+  margin: 10px 10px 0 0;
 	position: fixed;
 	right: 0px;
 }
