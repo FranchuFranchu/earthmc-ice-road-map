@@ -42,12 +42,12 @@ function panelToggle() {
   if (panelOpen) {
     panelOpen = false;
     gsap.to(".panel", {
-      x: -300,
-      duration: 0.25
+      x: -600,
+      duration: 0.35
     });
     setTimeout(function() {
       panel.style.display = "none";
-    }, 250)
+    }, 350)
   } else {
     panelOpen = true;
     panel.style.display = "block";
