@@ -28,22 +28,6 @@ body {
 	grid-template-areas: "chartdiv control-panel";
 }
 
-.dark-mode button,
-.dark-mode .buttonlike,
-.dark-mode input,
-.dark-mode select {
-	color: white;
-	background: rgb(0, 0, 0);
-	border: 1px solid white;
-	padding: 0px 8px 0px 8px;
-	margin: 5px;
-}
-
-.dark-mode button:hover,
-.dark-mode .buttonlike:hover {
-	background-color: rgb(128, 128, 128);
-}
-
 #chartdiv {
 	grid-area: chartdiv;
 }
