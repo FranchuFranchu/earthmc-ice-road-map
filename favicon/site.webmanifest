@@ -1,9 +1,9 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "EMC Ice Road Map",
+    "short_name": "Ice Road Map",
     "icons": [
         {
-            "src": "/android-chrome-144x144.png",
+            "src": "/favicon/android-chrome-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }
