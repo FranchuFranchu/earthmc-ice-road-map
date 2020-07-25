@@ -1,76 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 html {
-    height: 100%;
-  overflow: hidden;
+	height: 100%;
+	overflow: hidden;
 }
 
-body.dark-mode  {
-  background-color: black;
-  color: white;
+body.dark-mode {
+	background-color: black;
+	color: white;
 }
+
 body {
-  display: grid;
-  grid-template-columns: 2.0fr 0fr;/*grid-template-columns: 1.2fr 0.8fr;*/
-  grid-template-rows: 1fr;
-  height: 100%;
-  grid-template-areas: "chartdiv control-panel";
+	display: grid;
+	grid-template-columns: 2.0fr 0fr;
+	/*grid-template-columns: 1.2fr 0.8fr;*/
+	grid-template-rows: 1fr;
+	height: 100%;
+	grid-template-areas: "chartdiv control-panel";
 }
 
-.dark-mode button, .dark-mode .buttonlike, .dark-mode input, .dark-mode select {
-  color: white;
-  background: rgb(0,0,0);
-  border: 1px solid white;
-  padding: 0px 8px 0px 8px;
-  margin: 5px;
+.dark-mode button,
+.dark-mode .buttonlike,
+.dark-mode input,
+.dark-mode select {
+	color: white;
+	background: rgb(0, 0, 0);
+	border: 1px solid white;
+	padding: 0px 8px 0px 8px;
+	margin: 5px;
 }
 
-
-.dark-mode button:hover, .dark-mode .buttonlike:hover {
-  background-color: rgb(128,128,128);
+.dark-mode button:hover,
+.dark-mode .buttonlike:hover {
+	background-color: rgb(128, 128, 128);
 }
 
-#chartdiv { grid-area: chartdiv; }
+#chartdiv {
+	grid-area: chartdiv;
+}
 
-.panel { 
-  grid-area: control-panel;
-  height: 100%; 
-  display: none; 
-  margin: 10px;
-  overflow: scroll;
-  min-width: 300px;
-  height: 100%;
+.panel {
+	grid-area: control-panel;
+	height: 100%;
+	display: none;
+	margin: 10px;
+	overflow: scroll;
+	min-width: 300px;
+	height: 100%;
 }
 
 #legend-panel {
-  min-width: 200px;
+	min-width: 200px;
 }
 
 #legend {
-  line-height: 1.6em;
+	line-height: 1.6em;
 }
 
 .path-item {
-    margin: auto 2px auto 2px;
+	margin: auto 2px auto 2px;
 }
 
-
 #show-buttons {
-    position: fixed;
-
-    right: 0px;
+	position: fixed;
+	right: 0px;
 }
 
 .hide-button {
-    position: relative;
-    float: right;
-    margin-right: 10px;
+	position: relative;
+	float: right;
+	margin-right: 10px;
 }
 
 #result {
-
-    display: grid;
-    grid-template-columns: 0.05fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.background-path-line {
+	display: grid;
+	grid-template-columns: 0.05fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
