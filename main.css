@@ -63,6 +63,14 @@ body {
 	min-width: 300px;
 }
 
+.close-btn {
+  margin: 5px 5px 0 0;
+  float: right;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
 #legend-panel {
 	min-width: 200px;
 }
@@ -79,12 +87,6 @@ body {
   margin: 10px 10px 0 0;
 	position: fixed;
 	right: 0px;
-}
-
-.hide-button {
-	position: relative;
-	float: right;
-	margin-right: 10px;
 }
 
 #result {
