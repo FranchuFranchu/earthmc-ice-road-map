@@ -36,7 +36,7 @@
             <br>
             <h3>Directions</h3>
             <br>
-            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+            <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
                 <input type="text" class="mdc-text-field__input" id="from" list="city_list">
                 <div class="mdc-notched-outline">
                     <div class="mdc-notched-outline__leading"></div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <br><br>
-            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+            <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
                 <input type="text" class="mdc-text-field__input" id="to" list="city_list">
                 <div class="mdc-notched-outline">
                     <div class="mdc-notched-outline__leading"></div>
@@ -109,7 +109,7 @@
 
                     <form action="https://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
 
-                        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                        <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
                             <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-type" list="PUT YOUR LIST OF TYPES HERE">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
@@ -122,7 +122,7 @@
 
                         <br><br>
 
-                        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                        <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
                             <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-start" list="all_city_list">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
@@ -139,7 +139,7 @@
 
                         <br><br>
 
-                        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                        <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
                             <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-end" list="all_city_list">
                             <div class="mdc-notched-outline">
                                 <div class="mdc-notched-outline__leading"></div>
@@ -186,6 +186,10 @@
             onclick="panelToggle()">
             <span class="mdc-button__label">SHOW CONTROL</span>
         </button>
+        <button class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple"
+            onclick="toggleDarkMode()">
+            <span class="mdc-button__label"><i class="material-icons" id="dark"></i></span>
+        </button>
     </div>
 
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -200,12 +204,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
 
     <script src="geodata.js"></script>
-    <script src="mapSeries.js"></script>
     <script src="data.js"></script>
     <script src="pathfind.js"></script>
     <script src="howDoIGo.js"></script>
     <script src="addRoad.js"></script>
     <script src="app.js"></script>
+    <script src="mapSeries.js"></script>
 </body>
 
 </html>
