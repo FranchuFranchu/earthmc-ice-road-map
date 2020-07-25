@@ -31,8 +31,10 @@
     <div id="chartdiv"></div>
     <div id="drag-thumb" draggable="true"></div>
     <div id="panel" class="panel">
+        <button onclick="panelToggle()" class="close-btn"><i class="material-icons">close</i></button>
         <div class="fields">
-            <button onclick="panelToggle()" class="close-btn"><i class="material-icons">close</i></button>
+            <br>
+            <h3>Directions</h3>
             <br>
             <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
                 <input type="text" class="mdc-text-field__input" id="from" list="city_list">
@@ -56,84 +58,131 @@
                 </div>
             </div>
             <br><br>
-            <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple" onclick="how_do_i_go()">
+            <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple"
+                onclick="how_do_i_go()">
                 <span class="mdc-button__label">SEARCH</span>
             </button>
             <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple" onclick="clear_path()">
                 <span class="mdc-button__label">CLEAR</span>
             </button>
+            <br><br>
         </div>
         <div id="result"></div>
-    </div>
-    <!--<div id="legend-panel" class="panel">
-        <button onclick="panel()" id="legend-hide" class="hide-button">Hide</button>
-        <label for="toggleDarkMode">Dark mode</label>
-        <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
-        <br>
-        <br>
-        <hr>
-        <div id="legend"></div>
 
-        <br>
-        Icons: <br>
-        <ul>
-            <li>Star: Open nation spawn</li>
-            <li>Elevator: Water elevator that takes you into sea level</li>
-        </ul>
-        <hr />
+        <div class="info">
+            <div class="content">
+                <br>
+                <h3>Icons:</h3>
+                <ul>
+                    <li>Star: Open nation spawn</li>
+                    <li>Elevator: Water elevator that takes you into sea level</li>
+                </ul>
 
-        If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
-        <br><br>
+                <br>
+                <hr>
+                <br>
 
-        Thanks to everyone who told me about these ice roads, or let me use their maps to add them to this one
-        <br><br>
-        Special thanks to indian7p for making the Indian map
-        <br><br>
-        Thanks to J1K for the idea of dark mode
-        <br><br>
+                <p>
+                    If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
+                    <br><br>
 
-    </div>
+                    Thanks to everyone who told me about these ice roads, <br>
+                    or let me use their maps to add them to this one.
+                    <br><br>
+                    Special thanks to indian7p for making the Indian map.
+                    <br><br>
+                    Thanks to J1K for the idea of dark mode.
+                    <br><br>
+                </p>
+            </div>
 
-
-    <div id="addroad-panel" class="panel">
-        <button onclick="panel()" id="addroad-hide" class="hide-button">Hide</button>
-        <form action="https://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
-            <label for="type">Type</label>
-            <select id="addroad-checkpoint-type">
-            </select>
-            <label>From</label>
-            <input id="addroad-checkpoint-start" type="" class="" list="all_city_list">
-            <button type="button" onclick="addroad_pick('#addroad-checkpoint-start')">Pick</button>
+            <hr>
             <br>
-            <label>To</label>
-            <input id="addroad-checkpoint-end" type="" class="" list="all_city_list">
-            <button type="button" onclick="addroad_pick('#addroad-checkpoint-end')">Pick</button>
-            <br>
-            <button type="button" onclick="addroad_add_checkpoint()">Add connection</button>
 
-            <br />
-            <button type="button" onclick="addroad_submit()">Submit</button>
-            <br />
-            <br />
-            <br />
-            <ul id="addroad-checkpoints">
+            <div class="form">
+                <div class="content">
+                    <h3>Report a missing ice road</h3>
 
-            </ul>
-        </form>
-    </div>-->
+                    <br><br>
+
+                    <form action="https://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
+
+                        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                            <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-type" list="PUT YOUR LIST OF TYPES HERE">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="to" class="mdc-floating-label">Type</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+
+                        <br><br>
+
+                        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                            <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-start" list="all_city_list">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="to" class="mdc-floating-label">From</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+
+                        <button class="mdc-button mdc-button--raised" style="margin-left: 5px;" data-mdc-auto-init="MDCRipple" onclick="addroad_pick('#addroad-checkpoint-end')">
+                            <span class="mdc-button__label">PICK</span>
+                        </button>
+
+                        <br><br>
+
+                        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                            <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-end" list="all_city_list">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="to" class="mdc-floating-label">To</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+
+                        <button class="mdc-button mdc-button--raised" style="margin-left: 5px;" data-mdc-auto-init="MDCRipple" onclick="addroad_pick('#addroad-checkpoint-end')">
+                            <span class="mdc-button__label">PICK</span>
+                        </button>
+
+                        <br><br>
+
+                        <div>
+                            <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple"
+                                onclick="addroad_add_checkpoint()">
+                                <span class="mdc-button__label">ADD CONNECTION</span>
+                            </button>
+                            <button class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple"
+                                onclick="addroad_submit()">
+                                <span class="mdc-button__label">SUBMIT</span>
+                            </button>
+                        </div>
+
+                        <br><br><br>
+
+                        <ul id="addroad-checkpoints">
+
+                        </ul>
+                    </form>
+                </div>
+            </div>
+
+            <label for="toggleDarkMode">Dark mode</label>
+            <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
+        </div>
+    </div>
 
     <div id="show-buttons">
         <button class="mdc-button mdc-button--raised" id="control-show" data-mdc-auto-init="MDCRipple"
             onclick="panelToggle()">
             <span class="mdc-button__label">SHOW CONTROL</span>
-        </button>
-        <button class="mdc-button mdc-button--raised" id="legend-show" data-mdc-auto-init="MDCRipple"
-            onclick="legend_open()">
-            <span class="mdc-button__label">SHOW INFO</span>
-        </button>
-        <button class="mdc-button mdc-button--raised" id="addroad-show" data-mdc-auto-init="MDCRipple"
-            onclick="addroad_open()">
-            <span class="mdc-button__label">REPORT MISSING</span>
         </button>
     </div>
 
