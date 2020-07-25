@@ -1,108 +1,109 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8">
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
-<meta charset="utf-8">
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/maps.js"></script>
-<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="main.css">
-<script src="geodata.js"></script>
-<script src="mapSeries.js"></script>
-<script src="data.js"></script>
-<script src="pathfind.js"></script>
-<script src="howDoIGo.js"></script>
-<script src="addRoad.js"></script>
-<script src="https://emcice.pythonanywhere.com/data.js"></script>
-<script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="geodata.js"></script>
+    <script src="mapSeries.js"></script>
+    <script src="data.js"></script>
+    <script src="pathfind.js"></script>
+    <script src="howDoIGo.js"></script>
+    <script src="addRoad.js"></script>
+    <script src="https://emcice.pythonanywhere.com/data.js"></script>
+    <script src="app.js"></script>
     <title>EarthMC Ice Road Map</title>
 </head>
+
 <body>
-<datalist id="city_list"></datalist>
-<datalist id="all_city_list"></datalist>
-<div id="chartdiv"></div>
-<div id="drag-thumb" draggable="true"></div>
-<div id="control-panel" class="panel">
-    <div id="not-result">
-        <button onclick="control_close()" id="control-hide"  class="hide-button">Hide</button>
-        <input type="text" id="from" name="" placeholder="Where are you?" list="city_list">
-        <br>
-        <input type="text" id="to"   name="" placeholder="Where do you want to go?" list="city_list">
-        <br>
-        <button onclick="how_do_i_go()">Pathfind</button>
-        <button onclick="clear_path()">Clear</button>
+    <datalist id="city_list"></datalist>
+    <datalist id="all_city_list"></datalist>
+    <div id="chartdiv"></div>
+    <div id="drag-thumb" draggable="true"></div>
+    <div id="control-panel" class="panel">
+        <div id="not-result">
+            <button onclick="control_close()" id="control-hide" class="hide-button">Hide</button>
+            <input type="text" id="from" name="" placeholder="Where are you?" list="city_list">
+            <br>
+            <input type="text" id="to" name="" placeholder="Where do you want to go?" list="city_list">
+            <br>
+            <button onclick="how_do_i_go()">Pathfind</button>
+            <button onclick="clear_path()">Clear</button>
+        </div>
+        <div id="result"></div>
     </div>
-    <div id="result"></div>
-</div>
-<div id="legend-panel" class="panel">
-    <button onclick="legend_close()" id="legend-hide" class="hide-button">Hide</button>
-    <label for="toggleDarkMode">Dark mode</label>
-    <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
-    <br>
-    <br>
-    <hr>
-    <div id="legend"></div>
-
-    <br>
-    Icons: <br>
-    <ul> 
-        <li>Star: Open nation spawn</li>
-        <li>Elevator: Water elevator that takes you into sea level</li>
-    </ul>
-    <hr/>
-
-    If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
-    <br><br>
-
-    Thanks to everyone who told me about these ice roads, or let me use their maps to add them to this one
-    <br><br>
-    Special thanks to indian7p for making the Indian map
-    <br><br>
-    Thanks to J1K for the idea of dark mode
-    <br><br>
-
-</div>
-
-
-<div id="addroad-panel" class="panel">
-    <button onclick="addroad_close()" id="addroad-hide" class="hide-button">Hide</button>
-    <form action="http://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
-        <label for="type">Type</label>
-        <select id="addroad-checkpoint-type">
-        </select>
-        <label >From</label>
-        <input id="addroad-checkpoint-start" type="" class="" list="all_city_list">
-        <button type="button" onclick="addroad_pick('#addroad-checkpoint-start')">Pick</button>
+    <div id="legend-panel" class="panel">
+        <button onclick="legend_close()" id="legend-hide" class="hide-button">Hide</button>
+        <label for="toggleDarkMode">Dark mode</label>
+        <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
         <br>
-        <label >To</label>
-        <input id="addroad-checkpoint-end" type="" class="" list="all_city_list">
-        <button type="button" onclick="addroad_pick('#addroad-checkpoint-end')">Pick</button>
         <br>
-        <button type="button" onclick="addroad_add_checkpoint()">Add connection</button>
+        <hr>
+        <div id="legend"></div>
 
-        <br/>
-        <button type="button" onclick="addroad_submit()">Submit</button>
-        <br/>
-        <br/>
-        <br/>
-        <ul id="addroad-checkpoints">
-            
+        <br>
+        Icons: <br>
+        <ul>
+            <li>Star: Open nation spawn</li>
+            <li>Elevator: Water elevator that takes you into sea level</li>
         </ul>
+        <hr />
+
+        If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
+        <br><br>
+
+        Thanks to everyone who told me about these ice roads, or let me use their maps to add them to this one
+        <br><br>
+        Special thanks to indian7p for making the Indian map
+        <br><br>
+        Thanks to J1K for the idea of dark mode
+        <br><br>
+
+    </div>
 
 
-    </form>
-</div>
+    <div id="addroad-panel" class="panel">
+        <button onclick="addroad_close()" id="addroad-hide" class="hide-button">Hide</button>
+        <form action="http://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
+            <label for="type">Type</label>
+            <select id="addroad-checkpoint-type">
+            </select>
+            <label>From</label>
+            <input id="addroad-checkpoint-start" type="" class="" list="all_city_list">
+            <button type="button" onclick="addroad_pick('#addroad-checkpoint-start')">Pick</button>
+            <br>
+            <label>To</label>
+            <input id="addroad-checkpoint-end" type="" class="" list="all_city_list">
+            <button type="button" onclick="addroad_pick('#addroad-checkpoint-end')">Pick</button>
+            <br>
+            <button type="button" onclick="addroad_add_checkpoint()">Add connection</button>
 
-<div id="show-buttons">
-    <button id="control-show" onclick="control_open()">Show control</button>
-    <button id="legend-show" onclick="legend_open()">Show info</button>
-    <button id="addroad-show" onclick="addroad_open()">Report missing iceroad</button>
-</div>
+            <br />
+            <button type="button" onclick="addroad_submit()">Submit</button>
+            <br />
+            <br />
+            <br />
+            <ul id="addroad-checkpoints">
+
+            </ul>
+
+
+        </form>
+    </div>
+
+    <div id="show-buttons">
+        <button id="control-show" onclick="control_open()">Show control</button>
+        <button id="legend-show" onclick="legend_open()">Show info</button>
+        <button id="addroad-show" onclick="addroad_open()">Report missing iceroad</button>
+    </div>
 </body>
+
 </html>
