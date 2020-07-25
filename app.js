@@ -31,3 +31,29 @@ am4core.ready(function() {
   toggleDarkMode($("#toggleDarkMode")[0])
   
   })
+
+let panelOpen = false;
+let panel = document.getElementById('panel');
+gsap.to(".panel", {
+  x: -300,
+  duration: 1
+});
+function panelToggle() {
+  if (panelOpen) {
+    panelOpen = false;
+    gsap.to(".panel", {
+      x: -300,
+      duration: 1
+    });
+    setTimeout(function() {
+      panel.style.display = "none";
+    }, 1000)
+  } else {
+    panelOpen = true;
+    panel.style.display = "block";
+    gsap.to(".panel", {
+      x: 0, 
+      duration: 1
+    });
+  }
+};

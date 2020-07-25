@@ -97,20 +97,6 @@ function clear_path() {
     document.getElementById("result").innerHTML = ""
 }
 
-function control_open() {
-  document.getElementById("control-panel").style.display = "block";
-  document.getElementById("show-buttons").style.display = "none";
-
-}
-
-function control_close() {
-  document.getElementById("control-panel").style.display = "none";
-  document.getElementById("show-buttons").style.display = "block";
-
-  document.body.style.gridTemplateColumns = OFF_COLUMN
-  document.body.style.gridTemplateAreas = OFF_AREAS
-}
-
 function legend_open() {
   document.getElementById("legend-panel").style.display = "block";
   document.getElementById("show-buttons").style.display = "none";

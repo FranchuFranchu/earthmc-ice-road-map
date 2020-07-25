@@ -49,13 +49,18 @@ body {
 }
 
 .panel {
+  display: none;
+  float: left;
+  z-index: 1;
+  position: absolute;
+  background-color: #fff;
+  animation-duration: 1s;
+  box-shadow: 10px 0 5px -2px #d2d2d2;
+  
 	grid-area: control-panel;
-	height: 100%;
-	display: none;
-	margin: 10px;
-	overflow: scroll;
+  height: 100%;
+	overflow: none;
 	min-width: 300px;
-	height: 100%;
 }
 
 #legend-panel {

@@ -27,9 +27,9 @@
     <datalist id="all_city_list"></datalist>
     <div id="chartdiv"></div>
     <div id="drag-thumb" draggable="true"></div>
-    <div id="control-panel" class="panel">
+    <div id="panel" class="panel">
         <div id="not-result">
-            <button onclick="control_close()" id="control-hide" class="hide-button">Hide</button>
+            <button onclick="panelToggle()" id="control-hide" class="hide-button">Hide</button>
             <input type="text" id="from" name="" placeholder="Where are you?" list="city_list">
             <br>
             <input type="text" id="to" name="" placeholder="Where do you want to go?" list="city_list">
@@ -39,8 +39,8 @@
         </div>
         <div id="result"></div>
     </div>
-    <div id="legend-panel" class="panel">
-        <button onclick="legend_close()" id="legend-hide" class="hide-button">Hide</button>
+    <!--<div id="legend-panel" class="panel">
+        <button onclick="panel()" id="legend-hide" class="hide-button">Hide</button>
         <label for="toggleDarkMode">Dark mode</label>
         <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
         <br>
@@ -70,7 +70,7 @@
 
 
     <div id="addroad-panel" class="panel">
-        <button onclick="addroad_close()" id="addroad-hide" class="hide-button">Hide</button>
+        <button onclick="panel()" id="addroad-hide" class="hide-button">Hide</button>
         <form action="https://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
             <label for="type">Type</label>
             <select id="addroad-checkpoint-type">
@@ -94,10 +94,10 @@
 
             </ul>
         </form>
-    </div>
+    </div>-->
 
     <div id="show-buttons">
-        <button class="mdc-button mdc-button--raised" id="control-show" data-mdc-auto-init="MDCRipple" onclick="control_open()">
+        <button class="mdc-button mdc-button--raised" id="control-show" data-mdc-auto-init="MDCRipple" onclick="panelToggle()">
             <span class="mdc-button__label">SHOW CONTROL</span>
         </button>
         <button class="mdc-button mdc-button--raised" id="legend-show" data-mdc-auto-init="MDCRipple" onclick="legend_open()">
@@ -115,6 +115,7 @@
     <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/material-components-web@6.0.0/dist/material-components-web.min.js" integrity="sha384-cBdOLhkb7tUoRLp2RB5N844j6kWBYhDIaLerMreSO5jT721tVAfxCpUM7/n1Qq7l" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
 
     <script src="geodata.js"></script>
     <script src="mapSeries.js"></script>
