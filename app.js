@@ -43,17 +43,17 @@ function panelToggle() {
     panelOpen = false;
     gsap.to(".panel", {
       x: -300,
-      duration: 1
+      duration: 0.25
     });
     setTimeout(function() {
       panel.style.display = "none";
-    }, 1000)
+    }, 250)
   } else {
     panelOpen = true;
     panel.style.display = "block";
     gsap.to(".panel", {
       x: 0, 
-      duration: 1
+      duration: 0.5
     });
   }
 };
