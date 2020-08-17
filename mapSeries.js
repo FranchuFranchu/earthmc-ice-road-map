@@ -1,4 +1,3 @@
-
 function loadChart() {
 
     // Themes begin
@@ -44,18 +43,31 @@ function loadChart() {
 
 }
 
+let darkModeBtn = document.getElementById('dark');
+function light() {
+    darkModeBtn.innerHTML = "nights_stay";
+    polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(0).lighten(0.5);
+    polygonSeries.mapPolygons.each(e => e.fill = chart.colors.getIndex(0).lighten(0.5));
+    $("body").removeClass("dark-mode");
+    $("a").removeClass("dark-mode");
+    $(".panel").removeClass("dark-mode");
+}
 
-function toggleDarkMode(element) {
-    if (element.checked) {
-        polygonSeries.mapPolygons.template.fill = am4core.color("#000000")
-        polygonSeries.mapPolygons.each(e => e.fill = am4core.color("#000000"))
-        $("body").addClass("dark-mode")
+function dark() {
+    darkModeBtn.innerHTML = "brightness_5";
+    polygonSeries.mapPolygons.template.fill = am4core.color("#000000");
+    polygonSeries.mapPolygons.each(e => e.fill = am4core.color("#000000"));
+    $("body").addClass("dark-mode");
+    $("a").addClass("dark-mode");
+    $(".panel").addClass("dark-mode");
+}
+
+function toggleDarkMode() {
+    if (localStorage.darkMode === "true") {
+        light()
+        localStorage.darkMode = false;
     } else {
-        polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(0).lighten(0.5)
-        polygonSeries.mapPolygons.each(e => e.fill = chart.colors.getIndex(0).lighten(0.5))
-        $("body").removeClass("dark-mode")
+        dark()
+        localStorage.darkMode = true;
     }
-
-    // this is the problem with js 
-    localStorage.darkMode = (element.checked == true || element.checked == "true")
 }

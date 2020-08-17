@@ -1,140 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/material-components-web@6.0.0/dist/material-components-web.min.css"
+        rel="stylesheet" integrity="sha384-A/sGlEeOt+WfGT0Swvzn8fRYcFBytM8stinssAIoqO2XRIsJtWQUe/wBMvptkHjr"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Material+Icons&display=swap"
+        rel="stylesheet">
 
-
-<meta charset="utf-8">
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/maps.js"></script>
-<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="main.css">
-<script src="geodata.js"></script>
-<script src="mapSeries.js"></script>
-<script src="data.js"></script>
-<script src="pathfind.js"></script>
-<script src="howDoIGo.js"></script>
-<script src="addRoad.js"></script>
-<script src="https://emcice.pythonanywhere.com/data.js"></script>
-<script>
-am4core.ready(function() {
-loadChart()
-
-loadData()
-Object.keys(connections).forEach(function(k, i) {
-    
-    for (let i = 0; i < connections[k].length; i++) {
-        p0 = citiesL[connections[k][i][0]]
-        p1 = citiesL[connections[k][i][1]]
-        if (p1 == undefined || p0 == undefined) {
-            console.log("Can't make " + connections[k][i][0] + " to " + connections[k][i][1])
-            continue
-        }
-        addLine(p0, p1, k)
-    }
-
-});
-
-
-console.log($("#toggleDarkMode"))
-
-if (localStorage.darkMode == "true") {
-    $("#toggleDarkMode")[0].checked = true
-} else {
-    $("#toggleDarkMode")[0].checked = false
-
-}
-
-toggleDarkMode($("#toggleDarkMode")[0])
-
-})
-</script>
     <title>EarthMC Ice Road Map</title>
+
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+
+    <meta content="EarthMC Ice Road Map" property=og:title>
+    <meta content="Map of the ice roads in earthmc.net Towny" property=og:description>
+    <meta content=https://franchufranchu.github.io/favicon/android-chrome-144x144.png property=og:image>
+    <meta content=https://franchufranchu.github.io/earthmc-ice-road-map/ property=og:url>
 </head>
+
 <body>
-<datalist id="city_list"></datalist>
-<datalist id="all_city_list"></datalist>
-<div id="chartdiv"></div>
-<div id="drag-thumb" draggable="true"></div>
-<div id="control-panel" class="panel">
-    <div id="not-result">
-        <button onclick="control_close()" id="control-hide"  class="hide-button">Hide</button>
-        <input type="text" id="from" name="" placeholder="Where are you?" list="city_list">
-        <br>
-        <input type="text" id="to"   name="" placeholder="Where do you want to go?" list="city_list">
-        <br>
-        <button onclick="how_do_i_go()">Pathfind</button>
-        <button onclick="clear_path()">Clear</button>
+    <datalist id="city_list"></datalist>
+    <datalist id="all_city_list"></datalist>
+    <div id="chartdiv"></div>
+    <div id="drag-thumb" draggable="true"></div>
+    <div id="panel" class="panel">
+        <button onclick="panelToggle()" class="close-btn"><i class="material-icons">close</i></button>
+        <div class="fields">
+            <br>
+            <h3>Directions</h3>
+            <br>
+            <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+                <input type="text" class="mdc-text-field__input" id="from" list="city_list">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="to" class="mdc-floating-label">From</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <br><br>
+            <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+                <input type="text" class="mdc-text-field__input" id="to" list="city_list">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="to" class="mdc-floating-label">To</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <br><br>
+            <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple"
+                onclick="how_do_i_go()">
+                <span class="mdc-button__label">SEARCH</span>
+            </button>
+            <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple" onclick="clear_path()">
+                <span class="mdc-button__label">CLEAR</span>
+            </button>
+            <br><br>
+        </div>
+        <div id="result"></div>
+
+        <div class="info">
+            <div class="content">
+                <br>
+                <h3>Icons:</h3>
+                <ul>
+                    <li>Star: Open nation spawn</li>
+                    <li>Elevator: Water elevator that takes you into sea level</li>
+                </ul>
+
+                <br>
+                <hr>
+                <br>
+
+                <p>
+                    If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
+                    <br><br>
+
+                    Thanks to everyone who told me about these ice roads, <br>
+                    or let me use their maps to add them to this one.
+                    <br><br>
+                    Special thanks to indian7p for making the Indian map.
+                    <br><br>
+                    Thanks to J1K for the idea of dark mode.
+                    <br><br>
+                    Redesigned by imabritishcow
+                    <br><br>
+                </p>
+            </div>
+
+            <hr>
+            <br>
+
+            <div class="form">
+                <div class="content">
+                    <h3>Report a missing ice road</h3>
+
+                    <br><br>
+
+                    <form action="https://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
+
+                        <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+                            <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-type" list="PUT YOUR LIST OF TYPES HERE">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="to" class="mdc-floating-label">Type</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+
+                        <br><br>
+
+                        <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+                            <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-start" list="all_city_list">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="to" class="mdc-floating-label">From</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+
+                        <button class="mdc-button mdc-button--raised" style="margin-left: 5px;" data-mdc-auto-init="MDCRipple" onclick="addroad_pick('#addroad-checkpoint-end')">
+                            <span class="mdc-button__label">PICK</span>
+                        </button>
+
+                        <br><br>
+
+                        <div class="mdc-text-field mdc-text-field--filled" data-mdc-auto-init="MDCTextField">
+                            <input type="text" class="mdc-text-field__input" id="addroad-checkpoint-end" list="all_city_list">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                    <label for="to" class="mdc-floating-label">To</label>
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+
+                        <button class="mdc-button mdc-button--raised" style="margin-left: 5px;" data-mdc-auto-init="MDCRipple" onclick="addroad_pick('#addroad-checkpoint-end')">
+                            <span class="mdc-button__label">PICK</span>
+                        </button>
+
+                        <br><br>
+
+                        <div>
+                            <button class="mdc-button mdc-button--raised dir-btn" data-mdc-auto-init="MDCRipple"
+                                onclick="addroad_add_checkpoint()">
+                                <span class="mdc-button__label">ADD CONNECTION</span>
+                            </button>
+                            <button class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple"
+                                onclick="addroad_submit()">
+                                <span class="mdc-button__label">SUBMIT</span>
+                            </button>
+                        </div>
+
+                        <br><br><br>
+
+                        <ul id="addroad-checkpoints">
+
+                        </ul>
+                    </form>
+                </div>
+            </div>
+
+            <label for="toggleDarkMode">Dark mode</label>
+            <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
+        </div>
     </div>
-    <div id="result"></div>
-</div>
-<div id="legend-panel" class="panel">
-    <button onclick="legend_close()" id="legend-hide" class="hide-button">Hide</button>
-    <label for="toggleDarkMode">Dark mode</label>
-    <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
-    <br>
-    <br>
-    <hr>
-    <div id="legend"></div>
 
-    <br>
-    Icons: <br>
-    <ul> 
-        <li>Star: Open nation spawn</li>
-        <li>Elevator: Water elevator that takes you into sea level</li>
-    </ul>
-    <hr/>
+    <div id="show-buttons">
+        <button class="mdc-button mdc-button--raised" id="control-show" data-mdc-auto-init="MDCRipple"
+            onclick="panelToggle()">
+            <span class="mdc-button__label">SHOW CONTROL</span>
+        </button>
+        <button class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple"
+            onclick="toggleDarkMode()">
+            <span class="mdc-button__label"><i class="material-icons" id="dark"></i></span>
+        </button>
+    </div>
 
-    If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
-    <br><br>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/material-components-web@6.0.0/dist/material-components-web.min.js"
+        integrity="sha384-cBdOLhkb7tUoRLp2RB5N844j6kWBYhDIaLerMreSO5jT721tVAfxCpUM7/n1Qq7l"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
 
-    Thanks to everyone who told me about these ice roads, or let me use their maps to add them to this one
-    <br><br>
-    Special thanks to indian7p for making the Indian map
-    <br><br>
-    Thanks to J1K for the idea of dark mode
-    <br><br>
-
-</div>
-
-
-<div id="addroad-panel" class="panel">
-    <button onclick="addroad_close()" id="addroad-hide" class="hide-button">Hide</button>
-    <form action="http://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
-        <label for="type">Type</label>
-        <select id="addroad-checkpoint-type">
-        </select>
-        <label >From</label>
-        <input id="addroad-checkpoint-start" type="" class="" list="all_city_list">
-        <button type="button" onclick="addroad_pick('#addroad-checkpoint-start')">Pick</button>
-        <br>
-        <label >To</label>
-        <input id="addroad-checkpoint-end" type="" class="" list="all_city_list">
-        <button type="button" onclick="addroad_pick('#addroad-checkpoint-end')">Pick</button>
-        <br>
-        <button type="button" onclick="addroad_add_checkpoint()">Add connection</button>
-
-        <br/>
-        <button type="button" onclick="addroad_submit()">Submit</button>
-        <br/>
-        <br/>
-        <br/>
-        <ul id="addroad-checkpoints">
-            
-        </ul>
-
-
-    </form>
-</div>
-
-<div id="show-buttons">
-    <button id="control-show" onclick="control_open()">Show control</button>
-    <button id="legend-show" onclick="legend_open()">Show info</button>
-    <button id="addroad-show" onclick="addroad_open()">Report missing iceroad</button>
-</div>
+    <script src="geodata.js"></script>
+    <script src="data.js"></script>
+    <script src="pathfind.js"></script>
+    <script src="howDoIGo.js"></script>
+    <script src="addRoad.js"></script>
+    <script src="app.js"></script>
+    <script src="mapSeries.js"></script>
 </body>
+
 </html>

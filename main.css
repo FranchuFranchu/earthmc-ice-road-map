@@ -1,76 +1,108 @@
+* {
+	margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: black;
+}
+
+a .dark-mode {
+  color: white;
+}
+
+p {
+  font-size: 18px;
+}
+
 html {
-    height: 100%;
-  overflow: hidden;
+	height: 100%;
+	overflow: hidden;
 }
 
-body.dark-mode  {
-  background-color: black;
-  color: white;
+body.dark-mode {
+	background-color: black;
+	color: white;
 }
+
+.mdc-floating-label.dark-mode {
+  color: #d2d2d2 !important;
+}
+
+.mdc-text-field,
+.mdc-button {
+  --mdc-theme-primary: #82a9bc;
+}
+
 body {
-  display: grid;
-  grid-template-columns: 2.0fr 0fr;/*grid-template-columns: 1.2fr 0.8fr;*/
-  grid-template-rows: 1fr;
+	display: grid;
+	grid-template-columns: 2.0fr 0fr;
+	/*grid-template-columns: 1.2fr 0.8fr;*/
+	grid-template-rows: 1fr;
+	height: 100%;
+	grid-template-areas: "chartdiv control-panel";
+}
+
+#chartdiv {
+	grid-area: chartdiv;
+}
+
+.panel {
+  display: none;
+  float: left;
+  z-index: 1;
+  position: absolute;
+  background-color: #fff;
+  animation-duration: 1s;
+  border-right: 2px solid #d2d2d2;
+  
+	grid-area: control-panel;
   height: 100%;
-  grid-template-areas: "chartdiv control-panel";
+	overflow: none;
+	min-width: 300px;
 }
 
-.dark-mode button, .dark-mode .buttonlike, .dark-mode input, .dark-mode select {
-  color: white;
-  background: rgb(0,0,0);
-  border: 1px solid white;
-  padding: 0px 8px 0px 8px;
-  margin: 5px;
+.panel.dark-mode {
+  background-color: #212121;
 }
 
-
-.dark-mode button:hover, .dark-mode .buttonlike:hover {
-  background-color: rgb(128,128,128);
+.fields {
+  margin-left: 10px;
 }
 
-#chartdiv { grid-area: chartdiv; }
-
-.panel { 
-  grid-area: control-panel;
-  height: 100%; 
-  display: none; 
-  margin: 10px;
-  overflow: scroll;
-  min-width: 300px;
-  height: 100%;
+.close-btn {
+  margin: 5px 5px 0 0;
+  float: right;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-#legend-panel {
-  min-width: 200px;
+.dir-btn {
+  margin-right: 15px;
 }
-
-#legend {
-  line-height: 1.6em;
-}
-
 .path-item {
-    margin: auto 2px auto 2px;
+	margin: auto 2px auto 2px;
 }
 
+.info {
+  border-top: 2px solid #d2d2d2;
+}
+
+.content {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 #show-buttons {
-    position: fixed;
-
-    right: 0px;
-}
-
-.hide-button {
-    position: relative;
-    float: right;
-    margin-right: 10px;
+  margin: 10px 10px 0 0;
+	position: fixed;
+	right: 0px;
 }
 
 #result {
-
-    display: grid;
-    grid-template-columns: 0.05fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-.background-path-line {
+	display: grid;
+	grid-template-columns: 0.05fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
