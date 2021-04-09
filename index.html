@@ -30,7 +30,67 @@
     <datalist id="all_city_list"></datalist>
     <div id="chartdiv"></div>
     <div id="drag-thumb" draggable="true"></div>
-    <div id="panel" class="panel">
+
+    <div id="legend-panel" class="panel">
+        <button onclick="legend_close()" id="legend-hide" class="hide-button">Hide</button>
+        <label for="toggleDarkMode">Dark mode</label>
+        <input id="toggleDarkMode" oninput="toggleDarkMode(this)" type="checkbox" autocomplete="off" />
+        <br>
+        <br>
+        <hr>
+        <div id="legend"></div>
+
+        <br>
+        Icons: <br>
+        <ul> 
+            <li>Star: Open nation spawn</li>
+            <li>Elevator: Water elevator that takes you into sea level</li>
+        </ul>
+        <hr/>
+
+        If any ice road is missing, report <a href="http://bit.ly/emc-ice-form">here</a>
+        <br><br>
+
+        Thanks to everyone who told me about these ice roads, or let me use their maps to add them to this one
+        <br><br>
+        Special thanks to indian7p for making the Indian map
+        <br><br>
+        Thanks to J1K for the idea of dark mode
+        <br><br>
+
+    </div>
+
+
+    <div id="addroad-panel" class="panel">
+        <button onclick="addroad_close()" id="addroad-hide" class="hide-button">Hide</button>
+        <form action="http://emcice.pythonanywhere.com/addroad" method="post" id="addroad-form">
+            <label for="type">Type</label>
+            <select id="addroad-checkpoint-type">
+            </select>
+            <label >From</label>
+            <input id="addroad-checkpoint-start" type="" class="" list="all_city_list">
+            <button type="button" onclick="addroad_pick('#addroad-checkpoint-start')">Pick</button>
+            <br>
+            <label >To</label>
+            <input id="addroad-checkpoint-end" type="" class="" list="all_city_list">
+            <button type="button" onclick="addroad_pick('#addroad-checkpoint-end')">Pick</button>
+            <br>
+            <button type="button" onclick="addroad_add_checkpoint()">Add connection</button>
+
+            <br/>
+            <button type="button" onclick="addroad_submit()">Submit</button>
+            <br/>
+            <br/>
+            <br/>
+            <ul id="addroad-checkpoints">
+                
+            </ul>
+
+
+        </form>
+    </div>
+
+    <div id="control-panel" class="panel">
         <button onclick="panelToggle()" class="close-btn"><i class="material-icons">close</i></button>
         <div class="fields">
             <br>
@@ -182,6 +242,9 @@
     </div>
 
     <div id="show-buttons">
+
+        <button class="mdc-button mdc-button--raised" id="legend-show" onclick="legend_open()">Show info</button>
+        <button class="mdc-button mdc-button--raised" id="addroad-show" onclick="addroad_open()">Report missing iceroad</button>
         <button class="mdc-button mdc-button--raised" id="control-show" data-mdc-auto-init="MDCRipple"
             onclick="panelToggle()">
             <span class="mdc-button__label">SHOW CONTROL</span>
@@ -190,6 +253,7 @@
             onclick="toggleDarkMode()">
             <span class="mdc-button__label"><i class="material-icons" id="dark"></i></span>
         </button>
+
     </div>
 
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -202,6 +266,11 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+
+    <script src="https://emcice.pythonanywhere.com/data.js"></script> 
+    <!-- Dynamically generated JSON file -->
+    <!-- Use https://web.archive.org/web/20200817130546/https://emcice.pythonanywhere.com/data.js in case it goes down -->
+
 
     <script src="geodata.js"></script>
     <script src="data.js"></script>

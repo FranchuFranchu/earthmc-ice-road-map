@@ -96,3 +96,30 @@ function clear_path() {
     updateMapLines()
     document.getElementById("result").innerHTML = ""
 }
+
+function legend_open() {
+  document.getElementById("legend-panel").style.display = "block";
+  document.getElementById("show-buttons").style.display = "none";
+
+}
+
+function legend_close() {
+  document.getElementById("legend-panel").style.display = "none";
+  document.getElementById("show-buttons").style.display = "block";
+
+  document.body.style.gridTemplateColumns = OFF_COLUMN
+  document.body.style.gridTemplateAreas = OFF_AREAS
+}
+function addroad_open() {
+  document.getElementById("addroad-panel").style.display = "block";
+  document.getElementById("show-buttons").style.display = "none";
+
+}
+
+function addroad_close() {
+  document.getElementById("addroad-panel").style.display = "none";
+  document.getElementById("show-buttons").style.display = "block";
+
+  document.body.style.gridTemplateColumns = OFF_COLUMN
+  document.body.style.gridTemplateAreas = OFF_AREAS
+}
