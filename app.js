@@ -29,28 +29,32 @@ am4core.ready(function () {
   });
 })
 
+
 let panelOpen = false;
 let panel = document.getElementById('panel');
-gsap.to(".panel", {
+/*gsap.to(".panel", {
   x: -300,
   duration: 1
-});
+});*/
 function panelToggle() {
   if (panelOpen) {
     panelOpen = false;
+    /*
     gsap.to(".panel", {
       x: -600,
       duration: 0.35
     });
     setTimeout(function () {
       panel.style.display = "none";
-    }, 350)
+    }, 350)*/
   } else {
     panelOpen = true;
     panel.style.display = "block";
+    /*
     gsap.to(".panel", {
       x: 0,
       duration: 0.5
     });
+    */
   }
 };

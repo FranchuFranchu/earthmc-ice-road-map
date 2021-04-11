@@ -37,8 +37,8 @@ body.dark-mode {
 
 body {
 	display: grid;
-	grid-template-columns: 2.0fr 0fr;
-	/*grid-template-columns: 1.2fr 0.8fr;*/
+	/*grid-template-columns: 2.0fr 0fr; */
+	grid-template-columns: 1.2fr 0.8fr;
 	grid-template-rows: 1fr;
 	height: 100%;
 	grid-template-areas: "chartdiv control-panel";
@@ -50,7 +50,7 @@ body {
 
 .panel {
   display: none;
-  float: left;
+  right: 0;
   z-index: 1;
   position: absolute;
   background-color: #fff;
